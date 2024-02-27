@@ -100,7 +100,7 @@ for epoch in range(1, args.epochs+1):
         old_state_dict = model.state_dict()
         new_state_dict = {}
 
-        # 遍历原始 state_dict
+      
         for k, v in old_state_dict.items():
             if k == 'lin1.bias':
                 new_state_dict['conv1.bias'] = v
@@ -113,7 +113,7 @@ for epoch in range(1, args.epochs+1):
             else:
                 new_state_dict[k] = v
 
-        # 将新的 state_dict 加载到 model_test 中
+        
         model_test.load_state_dict(new_state_dict)
         with torch.no_grad():
             emb = model_test(data.x, data.edge_index)
