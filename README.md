@@ -11,7 +11,7 @@ This is the code for the paper "[StructComp: Substituting propagation with Struc
 ## Cite
 
 ```
-@inproceedings{lin2022spectral,
+@inproceedings{zhang2024structcomp,
   title={StructComp: Substituting propagation with Structural Compression in Training Graph Contrastive Learning},
   author={Zhang, Shengzhong and Yang, Wenjie and Cao, Xinyuan and Zhang, Hongwei and Huang, Zengfeng},
   booktitle={International Conference on Learning Representations},
