@@ -62,28 +62,4 @@ def classify(dataset_str, embeds, labels, eval_iter):
 
 
 
-def classify_standard(dataset_str, embeds, labels, eval_iter):
-    # run = wandb.init()
-    from sklearn.linear_model import LogisticRegression
-
-    import torch
-    num_nodes = embeds.shape[0]
-
-
-    acc_all = []
-
-    for _ in range(1):
-
-        train_mask = torch.zeros(num_nodes).bool()
-        train_mask[range(140)] = True
-        test_mask = torch.zeros(num_nodes).bool()
-        test_mask[range(1708, 2708)] = True
-        clf = LogisticRegression(solver='liblinear', max_iter=400).fit(embeds[train_mask], labels[train_mask])
-        output = torch.LongTensor(clf.predict(embeds[test_mask]))
-        acc = (output == labels[test_mask]).sum() / (test_mask).sum()
-        acc_all.append(acc)
-
-    print('acc:', np.mean(acc_all)*100, np.std(acc_all)*100)
-
-
 
